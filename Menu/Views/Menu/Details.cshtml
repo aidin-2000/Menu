@@ -1,0 +1,37 @@
+﻿@model Menu.Models.Dish
+@{
+
+    ViewData["Title"] = "Details";
+
+}
+
+<div class="container">
+           
+                <div class="d-flex justify-content-center">
+                    <h3>@Model.Name</h3>
+                </div>
+
+
+                <div class="d-flex justify-content-center">
+                    <img src="@Model.ImageUrl" style="width: 50%" />
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    @Model.Price.ToString("N2") Com
+                </div>
+    <div class="d-flex justify-content-center">
+        Ингредиенты:
+        <ul>
+            @foreach (var item in Model.DishIngredients) 
+            {
+                <li>
+                    @item.Ingredient.Name
+
+                </li>
+            }
+        </ul>
+    </div>
+
+
+    <a class="btn btn-info" asp-action="Index">Вернутся в Главную меню</a>
+</div>
